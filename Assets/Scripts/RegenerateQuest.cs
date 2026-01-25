@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.Events;
 
-public class GenerateQuest : MonoBehaviour
+public class RegnerateQuest : MonoBehaviour
 {
     [SerializeField] private GetValueFromDropdown questInfluence;
     [SerializeField] private GetValueFromSlider questLength;
@@ -16,19 +17,33 @@ public class GenerateQuest : MonoBehaviour
     [SerializeField] private Canvas outputContainer;
     [SerializeField] private GameObject nodePrefab;
 
-    public List<GameObject> nodeList = new();
+    private InputAction regenerate;
+
+    private List<GameObject> nodeList = new();
 
     private void Start()
     {
-        EventBus.Instance.OnRegenRequest += ClearOldNodes;
+        regenerate = InputSystem.actions.FindAction("Generate");
+    }
+
+    private void Update()
+    {
+        if (regenerate.WasReleasedThisFrame())
+        {
+            print($"User Requested a Regeneration with same Parameters.");
+            EventBus.Instance.RegenRequest();
+            Regenerate();
+        }
     }
 
     // Determine how many Nodes need to be generated
-    public void Generate()
+    public void Regenerate()
     {
+        ClearOldNodes();
+
         // Hide the PromptCanvas
         targetCanvas.enabled = false;
-        print($"Generating quest in the style of {questInfluence.GetDropdownValue().ToUpper()} with a length of {questLength.GetSliderValue()}.");
+        print($"Regenerating quest in the style of {questInfluence.GetDropdownValue().ToUpper()} with a length of {questLength.GetSliderValue()}.");
 
         // Instantiate 
         /*
@@ -43,7 +58,7 @@ public class GenerateQuest : MonoBehaviour
         switch (questLength.GetSliderValue())
         {
             case "TINY":
-                nodeCount = Random.Range(1,3);
+                nodeCount = Random.Range(1, 3);
                 break;
             case "SHORT":
                 nodeCount = Random.Range(3, 5);
@@ -71,8 +86,26 @@ public class GenerateQuest : MonoBehaviour
             nodeList.Add(node);
 
             node.transform.localPosition = position;
-            
         }
+    }
+
+    // Check all nodes if there is any overlap, if so generate a new position
+    private void CheckNodeOverlap()
+    {
+        for (int i = 0; i < nodeList.Count; i++)
+        {
+            for (int j = 0; j < nodeList.Count; j++)
+            {
+                if (nodeList[i] != null || nodeList[j] != null)
+                {
+                    if (nodeList[i].transform.localPosition == nodeList[j].transform.localPosition)
+                    {
+                        nodeList[i].transform.localPosition = RandomNodePosition();
+                    }
+                }
+            }
+        }
+
     }
 
     private Vector3 RandomNodePosition()
@@ -87,7 +120,7 @@ public class GenerateQuest : MonoBehaviour
         {
             foreach (var node in nodeList)
             {
-                if(node != null)
+                if (node != null)
                 {
                     Destroy(node);
                 }

@@ -1805,6 +1805,7 @@ MonoBehaviour:
   targetCanvas: {fileID: 1649948174}
   outputContainer: {fileID: 1438760697}
   nodePrefab: {fileID: 6009503934348468959, guid: 1f05fcb3522513a45911c6df98b605d3, type: 3}
+  nodeList: []
 --- !u!1 &929539031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,6 +1954,7 @@ GameObject:
   - component: {fileID: 971552005}
   - component: {fileID: 971552004}
   - component: {fileID: 971552003}
+  - component: {fileID: 971552006}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2021,6 +2023,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &971552006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971552002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab04d1086ef89e24b862a34f639c0041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EventBus
 --- !u!1 &971826139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,9 +2464,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1438760693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a7145ab075ba9438bab85b9e6da471, type: 3}
+  m_Script: {fileID: 11500000, guid: ea27b916c47782648900302ac1c73f5d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GenerateQuest
+  m_EditorClassIdentifier: Assembly-CSharp::RegnerateQuest
   questInfluence: {fileID: 450632533}
   questLength: {fileID: 1922094540}
   targetCanvas: {fileID: 1649948174}
