@@ -89,25 +89,6 @@ public class RegnerateQuest : MonoBehaviour
         }
     }
 
-    // Check all nodes if there is any overlap, if so generate a new position
-    private void CheckNodeOverlap()
-    {
-        for (int i = 0; i < nodeList.Count; i++)
-        {
-            for (int j = 0; j < nodeList.Count; j++)
-            {
-                if (nodeList[i] != null || nodeList[j] != null)
-                {
-                    if (nodeList[i].transform.localPosition == nodeList[j].transform.localPosition)
-                    {
-                        nodeList[i].transform.localPosition = RandomNodePosition();
-                    }
-                }
-            }
-        }
-
-    }
-
     private Vector3 RandomNodePosition()
     {
         return new Vector3(Random.Range(-850f, 850f), Random.Range(-400f, 400f));

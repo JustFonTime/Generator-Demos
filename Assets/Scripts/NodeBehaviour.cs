@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class NodeBehaviour : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision != null)
         {
+            print("Node had a overlap");
             collision.transform.localPosition = RandomNodePosition();
         }
     }

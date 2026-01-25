@@ -96,27 +96,3 @@ public class GenerateQuest : MonoBehaviour
     }
 
 }
-
-
-//using Newtonsoft.Json.Linq;
-//using UnityEngine;
-
-//public class CharacterClass
-//{
-//    public int sprite;
-//    public string health;
-//    public string mana;
-//    public string mana_regeneration;
-//    public string spellpower;
-//    public string speed;
-
-//    public CharacterClass(JObject json)
-//    {
-//        sprite = (int)json["sprite"];
-//        health = json["health"]?.ToString();
-//        mana = json["mana"]?.ToString();
-//        mana_regeneration = json["mana_regeneration"]?.ToString();
-//        spellpower = json["spellpower"]?.ToString();
-//        speed = json["speed"]?.ToString();
-//    }
-//}
