@@ -7,13 +7,18 @@ public class NodeBehaviour : MonoBehaviour
         if (collision != null)
         {
             print("Node had a overlap");
-            collision.transform.localPosition = RandomNodePosition();
+            collision.transform.position = RandomNodePosition();
         }
     }
 
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    EventBus.Instance.CompleteOverlapHandling();
+    //}
+
     private Vector3 RandomNodePosition()
     {
-        return new Vector3(Random.Range(-850f, 850f), Random.Range(-400f, 400f));
+        return new Vector3(Random.Range(-45f, 45f), Random.Range(-20f, 20f), 100f);
     }
 
 }

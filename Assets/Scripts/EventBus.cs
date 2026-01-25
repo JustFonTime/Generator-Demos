@@ -24,4 +24,11 @@ public class EventBus : MonoBehaviour
     {
         OnRegenRequest?.Invoke();
     }
+
+    //public event Action OnCompleteOverlapHandling;
+
+    //public void CompleteOverlapHandling()
+    //{
+    //    OnCompleteOverlapHandling?.Invoke();
+    //}
 }

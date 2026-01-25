@@ -14,16 +14,22 @@ public class RegnerateQuest : MonoBehaviour
 
     [SerializeField] private Canvas targetCanvas;
 
-    [SerializeField] private Canvas outputContainer;
+    [SerializeField] private GameObject outputContainer;
     [SerializeField] private GameObject nodePrefab;
 
     private InputAction regenerate;
 
     private List<GameObject> nodeList = new();
 
+    [Header("Edges")]
+    [SerializeField] private LineRenderer edgePrefab;
+    public List<GameObject> edgeList = new();
+
     private void Start()
     {
         regenerate = InputSystem.actions.FindAction("Generate");
+
+        EventBus.Instance.OnCompleteOverlapHandling += CreateEdges;
     }
 
     private void Update()
@@ -40,6 +46,7 @@ public class RegnerateQuest : MonoBehaviour
     public void Regenerate()
     {
         ClearOldNodes();
+        ClearEdges();
 
         // Hide the PromptCanvas
         targetCanvas.enabled = false;
@@ -85,13 +92,15 @@ public class RegnerateQuest : MonoBehaviour
             node.name = $"Node_{i}";
             nodeList.Add(node);
 
-            node.transform.localPosition = position;
+            node.transform.position = position;
         }
+
+        CreateEdges();
     }
 
     private Vector3 RandomNodePosition()
     {
-        return new Vector3(Random.Range(-850f, 850f), Random.Range(-400f, 400f));
+        return new Vector3(Random.Range(-45f, 45f), Random.Range(-20f, 20f), 100f);
     }
 
     // Remove all previously instantiated Nodes
@@ -107,8 +116,39 @@ public class RegnerateQuest : MonoBehaviour
                 }
             }
         }
+
+        nodeList.Clear();
     }
 
+    private void CreateEdges()
+    {
+        edgePrefab.positionCount = 0;
+
+        var edge = Instantiate(edgePrefab, outputContainer.transform);
+        edgeList.Add(edge.gameObject);
+        edge.positionCount = nodeList.Count;
+
+        for (int i = 0; i < nodeList.Count; i++)
+        {
+            edge.SetPosition(i, nodeList[i].transform.position);
+        }
+    }
+
+    private void ClearEdges()
+    {
+        if (edgeList.Count > 0)
+        {
+            foreach (var edge in edgeList)
+            {
+                if (edge != null)
+                {
+                    Destroy(edge);
+                }
+            }
+        }
+
+        edgeList.Clear();
+    }
 }
 
 
