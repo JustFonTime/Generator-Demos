@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NodeBehaviour : MonoBehaviour
+public class Node : MonoBehaviour
 {
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -10,11 +10,6 @@ public class NodeBehaviour : MonoBehaviour
             collision.transform.position = RandomNodePosition();
         }
     }
-
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    EventBus.Instance.CompleteOverlapHandling();
-    //}
 
     private Vector3 RandomNodePosition()
     {

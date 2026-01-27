@@ -1,9 +1,14 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class EventBus : MonoBehaviour
 {
     public static EventBus Instance { get; private set; }
+
+    public GetValueFromDropdown questInfluence;
+    public GetValueFromSlider questLength;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -16,7 +21,6 @@ public class EventBus : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
-
     }
 
     public event Action OnRegenRequest;
@@ -25,10 +29,4 @@ public class EventBus : MonoBehaviour
         OnRegenRequest?.Invoke();
     }
 
-    //public event Action OnCompleteOverlapHandling;
-
-    //public void CompleteOverlapHandling()
-    //{
-    //    OnCompleteOverlapHandling?.Invoke();
-    //}
 }

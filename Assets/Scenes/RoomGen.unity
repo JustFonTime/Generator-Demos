@@ -1800,13 +1800,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a7145ab075ba9438bab85b9e6da471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GenerateQuest
-  questInfluence: {fileID: 450632533}
-  questLength: {fileID: 1922094540}
   targetCanvas: {fileID: 1649948174}
   outputContainer: {fileID: 1079181316}
   nodePrefab: {fileID: 9196992418839692987, guid: 9d30d2029b2487f41aea1a1d713e1336, type: 3}
   nodeList: []
   edgePrefab: {fileID: 3272986369461853809, guid: 5b3da78c6adee7041a6e67a22ceb3ff9, type: 3}
+  edgeList: []
 --- !u!1 &929539031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab04d1086ef89e24b862a34f639c0041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventBus
+  questInfluence: {fileID: 450632533}
+  questLength: {fileID: 1922094540}
 --- !u!1 &971826139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,12 +2326,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea27b916c47782648900302ac1c73f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RegnerateQuest
-  questInfluence: {fileID: 450632533}
-  questLength: {fileID: 1922094540}
   targetCanvas: {fileID: 1649948174}
   outputContainer: {fileID: 1079181316}
   nodePrefab: {fileID: 9196992418839692987, guid: 9d30d2029b2487f41aea1a1d713e1336, type: 3}
   edgePrefab: {fileID: 3272986369461853809, guid: 5b3da78c6adee7041a6e67a22ceb3ff9, type: 3}
+  edgeList: []
 --- !u!1 &1317227218
 GameObject:
   m_ObjectHideFlags: 0

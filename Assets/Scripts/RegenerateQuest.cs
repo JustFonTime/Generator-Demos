@@ -9,9 +9,7 @@ using UnityEngine.Events;
 
 public class RegnerateQuest : MonoBehaviour
 {
-    [SerializeField] private GetValueFromDropdown questInfluence;
-    [SerializeField] private GetValueFromSlider questLength;
-
+    private EventBus eventBusRef;
     [SerializeField] private Canvas targetCanvas;
 
     [SerializeField] private GameObject outputContainer;
@@ -27,9 +25,10 @@ public class RegnerateQuest : MonoBehaviour
 
     private void Start()
     {
+        eventBusRef = EventBus.Instance;
         regenerate = InputSystem.actions.FindAction("Generate");
 
-        EventBus.Instance.OnCompleteOverlapHandling += CreateEdges;
+        //EventBus.Instance.OnCompleteOverlapHandling += CreateEdges;
     }
 
     private void Update()
@@ -37,7 +36,7 @@ public class RegnerateQuest : MonoBehaviour
         if (regenerate.WasReleasedThisFrame())
         {
             print($"User Requested a Regeneration with same Parameters.");
-            EventBus.Instance.RegenRequest();
+            eventBusRef.RegenRequest();
             Regenerate();
         }
     }
@@ -50,7 +49,7 @@ public class RegnerateQuest : MonoBehaviour
 
         // Hide the PromptCanvas
         targetCanvas.enabled = false;
-        print($"Regenerating quest in the style of {questInfluence.GetDropdownValue().ToUpper()} with a length of {questLength.GetSliderValue()}.");
+        print($"Regenerating quest in the style of {eventBusRef.questInfluence.GetDropdownValue().ToUpper()} with a length of {eventBusRef.questLength.GetSliderValue()}.");
 
         // Instantiate 
         /*
@@ -62,7 +61,7 @@ public class RegnerateQuest : MonoBehaviour
         */
         var nodeCount = 0;
 
-        switch (questLength.GetSliderValue())
+        switch (eventBusRef.questLength.GetSliderValue())
         {
             case "TINY":
                 nodeCount = Random.Range(1, 3);
@@ -90,6 +89,20 @@ public class RegnerateQuest : MonoBehaviour
 
             var node = Instantiate(nodePrefab, outputContainer.transform);
             node.name = $"Node_{i}";
+
+            if (i == 0)
+            {
+                node.GetComponentInChildren<TextMeshPro>().text = "START";
+            }
+            else if (i == nodeCount)
+            {
+                node.GetComponentInChildren<TextMeshPro>().text = "END";
+            }
+            else
+            {
+                node.GetComponentInChildren<TextMeshPro>().text = $"Node{i}";
+            }
+
             nodeList.Add(node);
 
             node.transform.position = position;

@@ -9,8 +9,7 @@ using UnityEditor;
 
 public class GenerateQuest : MonoBehaviour
 {
-    [SerializeField] private GetValueFromDropdown questInfluence;
-    [SerializeField] private GetValueFromSlider questLength;
+    private EventBus eventBusRef;
 
     [SerializeField] private Canvas targetCanvas;
 
@@ -26,6 +25,7 @@ public class GenerateQuest : MonoBehaviour
 
     private void Start()
     {
+        eventBusRef = EventBus.Instance;
         EventBus.Instance.OnRegenRequest += ClearOldNodes;
         EventBus.Instance.OnRegenRequest += ClearEdges;
     }
@@ -35,7 +35,7 @@ public class GenerateQuest : MonoBehaviour
     {
         // Hide the PromptCanvas
         targetCanvas.enabled = false;
-        print($"Generating quest in the style of {questInfluence.GetDropdownValue().ToUpper()} with a length of {questLength.GetSliderValue()}.");
+        print($"Generating quest in the style of {eventBusRef.questInfluence.GetDropdownValue().ToUpper()} with a length of {eventBusRef.questLength.GetSliderValue()}.");
 
         // Instantiate 
         /*
@@ -47,7 +47,7 @@ public class GenerateQuest : MonoBehaviour
         */
         var nodeCount = 0;
 
-        switch (questLength.GetSliderValue())
+        switch (eventBusRef.questLength.GetSliderValue())
         {
             case "TINY":
                 nodeCount = Random.Range(1,3);
@@ -75,6 +75,20 @@ public class GenerateQuest : MonoBehaviour
 
             var node = Instantiate(nodePrefab, outputContainer.transform);
             node.name = $"Node_{i}";
+
+            if(i == 0)
+            {
+                node.GetComponentInChildren<TextMeshPro>().text = "START";
+            }
+            else if (i == nodeCount)
+            {
+                node.GetComponentInChildren<TextMeshPro>().text = "END";
+            }
+            else
+            {
+                node.GetComponentInChildren<TextMeshPro>().text = $"Node{i}";
+            }
+
             nodeList.Add(node);
 
             node.transform.position = position;
