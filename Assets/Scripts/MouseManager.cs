@@ -12,19 +12,22 @@ public class MouseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePos = Mouse.current.position.ReadValue();
-        //print(mousePos);
-
-        Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
 
         if(mouseClick.WasPressedThisFrame())
         {
-            print("Mouse was pressed");
+            Vector2 mousePos = Mouse.current.position.ReadValue();
+
+            Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
+            RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction);
+
+            if (hit.collider != null)
+            {
+                print(hit.collider.gameObject.name);
+            }
         }
 
         if(mouseClick.WasReleasedThisFrame())
         {
-            print("Mouse was released");
         }
     }
 }
