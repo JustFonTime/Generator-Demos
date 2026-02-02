@@ -154,9 +154,6 @@ public class RegnerateQuest : MonoBehaviour
                 edge.SetPosition(0, nodeList[i].transform.position);
                 edge.SetPosition(1, nodeList[i + 1].transform.position);
 
-                //edge.startColor = Color.pink;
-                //edge.endColor = Color.green;
-
             }
         }
 

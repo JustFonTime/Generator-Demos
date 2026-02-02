@@ -993,7 +993,6 @@ GameObject:
   - component: {fileID: 450632532}
   - component: {fileID: 450632531}
   - component: {fileID: 450632530}
-  - component: {fileID: 450632533}
   m_Layer: 5
   m_Name: InfluenceOption
   m_TagString: Untagged
@@ -1078,7 +1077,7 @@ MonoBehaviour:
     - m_Text: Adventure
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: MMORPG
+    - m_Text: MMO
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: RPG
@@ -1090,7 +1089,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 450632533}
+      - m_Target: {fileID: 971552007}
         m_TargetAssemblyTypeName: GetValueFromDropdown, Assembly-CSharp
         m_MethodName: SetDropdownValue
         m_Mode: 1
@@ -1141,19 +1140,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450632528}
   m_CullTransparentMesh: 1
---- !u!114 &450632533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450632528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36f918ceb5f359e428e108c749c5d7b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GetValueFromDropdown
-  dropdown: {fileID: 450632530}
 --- !u!1 &558143327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,6 +1941,8 @@ GameObject:
   - component: {fileID: 971552004}
   - component: {fileID: 971552003}
   - component: {fileID: 971552006}
+  - component: {fileID: 971552007}
+  - component: {fileID: 971552008}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2035,8 +2023,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab04d1086ef89e24b862a34f639c0041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventBus
-  questInfluence: {fileID: 450632533}
-  questLength: {fileID: 1922094540}
+  questInfluence: {fileID: 971552007}
+  questLength: {fileID: 971552008}
+--- !u!114 &971552007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971552002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f918ceb5f359e428e108c749c5d7b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GetValueFromDropdown
+  dropdown: {fileID: 450632530}
+--- !u!114 &971552008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971552002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029c0d95e389be1429bc36ff6f28f04c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GetValueFromSlider
+  slider: {fileID: 1922094539}
+  text: {fileID: 1652526090}
 --- !u!1 &971826139
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,7 +2362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1248094703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3264,7 +3279,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1922094538}
   - component: {fileID: 1922094539}
-  - component: {fileID: 1922094540}
   m_Layer: 5
   m_Name: QuestLength
   m_TagString: Untagged
@@ -3347,7 +3361,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1922094540}
+      - m_Target: {fileID: 971552008}
         m_TargetAssemblyTypeName: GetValueFromSlider, Assembly-CSharp
         m_MethodName: SetSliderValue
         m_Mode: 1
@@ -3359,20 +3373,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1922094540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922094537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 029c0d95e389be1429bc36ff6f28f04c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GetValueFromSlider
-  slider: {fileID: 1922094539}
-  text: {fileID: 1652526090}
 --- !u!1 &1936154625
 GameObject:
   m_ObjectHideFlags: 0

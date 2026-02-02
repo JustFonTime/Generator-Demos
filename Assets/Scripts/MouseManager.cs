@@ -20,7 +20,7 @@ public class MouseManager : MonoBehaviour
             Ray mouseRay = Camera.main.ScreenPointToRay(mousePos);
             RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction);
 
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.gameObject.tag == "Node")
             {
                 print(hit.collider.gameObject.name);
             }
