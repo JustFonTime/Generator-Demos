@@ -82,15 +82,6 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "641cd816-40e6-41b4-8c3d-04687c349290",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Generate",
-                    "type": "Button",
-                    "id": "daf487b0-3458-4a10-98f1-ee62229f3ecc",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -482,17 +473,6 @@
                     "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4ef62f04-c6de-4681-a2e8-6ae7cab7245b",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Generate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -522,7 +502,7 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "15cef263-9014-4fd5-94d9-4e4a6234a6ef",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -1007,6 +987,54 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Tool Interaction",
+            "id": "a876588b-e3a8-4761-87ad-043feafcbf13",
+            "actions": [
+                {
+                    "name": "MousePressed",
+                    "type": "Button",
+                    "id": "9329a170-1fee-4551-baa5-6f39e7786804",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Generate",
+                    "type": "Button",
+                    "id": "d5addc8f-539f-4c1e-816e-3d98e49083ac",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "277e88c8-1726-4fce-a341-53569fa57517",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a0986a4c-cbe7-4d72-a943-0f45d4988182",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Generate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

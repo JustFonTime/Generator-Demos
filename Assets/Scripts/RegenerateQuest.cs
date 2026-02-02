@@ -27,8 +27,6 @@ public class RegnerateQuest : MonoBehaviour
     {
         eventBusRef = EventBus.Instance;
         regenerate = InputSystem.actions.FindAction("Generate");
-
-        //EventBus.Instance.OnCompleteOverlapHandling += CreateEdges;
     }
 
     private void Update()
