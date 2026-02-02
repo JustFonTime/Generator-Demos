@@ -14,9 +14,7 @@ public class Node : MonoBehaviour
 
     private Vector3 RandomNodePosition()
     {
-        return new Vector3(Random.Range(-45f, 45f), Random.Range(-20f, 20f), 100f);
-
-        
+        return new Vector3(Random.Range(-90f, 90f), Random.Range(-45f, 40f), 200f);
     }
 
 }

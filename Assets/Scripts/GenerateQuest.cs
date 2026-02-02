@@ -99,7 +99,7 @@ public class GenerateQuest : MonoBehaviour
 
     private Vector3 RandomNodePosition()
     {
-        return new Vector3(Random.Range(-45f, 45f), Random.Range(-20f, 20f), 100f);
+        return new Vector3(Random.Range(-90f, 90f), Random.Range(-45f, 40f), 200f);
     }
 
     // Remove all previously instantiated Nodes
@@ -125,24 +125,21 @@ public class GenerateQuest : MonoBehaviour
 
         for(int i = 0; i < nodeList.Count; i++)
         {
+            if (i + 1 >= nodeList.Count)
+            {
+
+                break;
+            }
+
             var edge = Instantiate(edgePrefab, outputContainer.transform);
             edgeList.Add(edge.gameObject);
 
-            // node should only go from one to the next if possible
-            if(i + 1 >= nodeList.Count)
-            {
-                break;
-            }
-            else
-            {
-                edge.positionCount = 2;
+            edge.positionCount = 2;
+            edge.SetPosition(0, nodeList[i].transform.position);
+            edge.SetPosition(1, nodeList[i+1].transform.position);
 
-                edge.SetPosition(0, nodeList[i].transform.position);
-                edge.SetPosition(1, nodeList[i+1].transform.position);
-
-                edge.startColor = Color.pink;
-                edge.endColor = Color.green;
-            }
+            //edge.startColor = Color.pink;
+            //edge.endColor = Color.green;
         }
 
         //print("Finished Generating Nodes");

@@ -113,7 +113,7 @@ public class RegnerateQuest : MonoBehaviour
 
     private Vector3 RandomNodePosition()
     {
-        return new Vector3(Random.Range(-45f, 45f), Random.Range(-20f, 20f), 100f);
+        return new Vector3(Random.Range(-90f, 90f), Random.Range(-45f, 40f), 200f);
     }
 
     // Remove all previously instantiated Nodes
@@ -154,8 +154,9 @@ public class RegnerateQuest : MonoBehaviour
                 edge.SetPosition(0, nodeList[i].transform.position);
                 edge.SetPosition(1, nodeList[i + 1].transform.position);
 
-                edge.startColor = Color.pink;
-                edge.endColor = Color.green;
+                //edge.startColor = Color.pink;
+                //edge.endColor = Color.green;
+
             }
         }
 
