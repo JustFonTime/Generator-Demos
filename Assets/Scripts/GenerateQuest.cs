@@ -26,8 +26,8 @@ public class GenerateQuest : MonoBehaviour
     private void Start()
     {
         eventBusRef = EventBus.Instance;
-        EventBus.Instance.OnRegenRequest += ClearOldNodes;
-        EventBus.Instance.OnRegenRequest += ClearEdges;
+        EventBus.Instance.OnRegenRequest += ClearAll;
+        EventBus.Instance.OnNodeOverlapped += HandleOverlap;
     }
 
     // Determine how many Nodes need to be generated
@@ -71,7 +71,7 @@ public class GenerateQuest : MonoBehaviour
         {
             Vector3 position = RandomNodePosition();
 
-            print($"new node at {position}, ID {i}");
+            //print($"new node at {position}, ID {i}");
 
             var node = Instantiate(nodePrefab, outputContainer.transform);
             node.name = $"Node_{i}";
@@ -123,16 +123,29 @@ public class GenerateQuest : MonoBehaviour
     {
         edgePrefab.positionCount = 0;
 
-        var edge = Instantiate(edgePrefab, outputContainer.transform);
-        edgeList.Add(edge.gameObject);
-
-        edge.positionCount = 0;
-        edge.positionCount = nodeList.Count;
-
-        for (int i = 0; i < nodeList.Count; i++)
+        for(int i = 0; i < nodeList.Count; i++)
         {
-            edge.SetPosition(i, nodeList[i].transform.position);
+            var edge = Instantiate(edgePrefab, outputContainer.transform);
+            edgeList.Add(edge.gameObject);
+
+            // node should only go from one to the next if possible
+            if(i + 1 >= nodeList.Count)
+            {
+                break;
+            }
+            else
+            {
+                edge.positionCount = 2;
+
+                edge.SetPosition(0, nodeList[i].transform.position);
+                edge.SetPosition(1, nodeList[i+1].transform.position);
+
+                edge.startColor = Color.pink;
+                edge.endColor = Color.green;
+            }
         }
+
+        //print("Finished Generating Nodes");
     }
 
     private void ClearEdges()
@@ -149,5 +162,17 @@ public class GenerateQuest : MonoBehaviour
         }
 
         edgeList.Clear();
+    }
+
+    private void ClearAll()
+    {
+        ClearOldNodes();
+        ClearEdges();
+    }
+
+    private void HandleOverlap()
+    {
+        ClearEdges();
+        CreateEdges();
     }
 }

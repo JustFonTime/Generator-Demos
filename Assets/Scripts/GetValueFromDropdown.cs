@@ -16,7 +16,7 @@ public class GetValueFromDropdown : MonoBehaviour
         selectedOptionIndex = dropdown.value;
         selectedOptionName = dropdown.options[selectedOptionIndex].text;
 
-        print($"User selected '{selectedOptionName.ToUpper()}' from the {gameObject.name} list");
+        //print($"User selected '{selectedOptionName.ToUpper()}' from the {gameObject.name} list");
 
     }
 

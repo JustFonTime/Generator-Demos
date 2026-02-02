@@ -29,4 +29,10 @@ public class EventBus : MonoBehaviour
         OnRegenRequest?.Invoke();
     }
 
+    public event Action OnNodeOverlapped;
+
+    public void NodeOverlap()
+    {
+        OnNodeOverlapped?.Invoke();
+    }
 }

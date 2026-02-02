@@ -6,14 +6,17 @@ public class Node : MonoBehaviour
     {
         if (collision != null)
         {
-            print("Node had a overlap");
+            //print("Node had a overlap");
             collision.transform.position = RandomNodePosition();
+            EventBus.Instance.NodeOverlap();
         }
     }
 
     private Vector3 RandomNodePosition()
     {
         return new Vector3(Random.Range(-45f, 45f), Random.Range(-20f, 20f), 100f);
+
+        
     }
 
 }

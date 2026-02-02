@@ -45,7 +45,7 @@ public class GetValueFromSlider : MonoBehaviour
 
         text.text = length.ToString();
 
-        print($"User selected a Quest Length of: {length}");
+        //print($"User selected a Quest Length of: {length}");
     }
 
     public string GetSliderValue()
