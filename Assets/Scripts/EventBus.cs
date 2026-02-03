@@ -23,6 +23,13 @@ public class EventBus : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    public event Action OnNodeCreated;
+    public void NodeCreated()
+    {
+        OnNodeCreated?.Invoke();
+    }
+
+
     public event Action OnRegenRequest;
     public void RegenRequest()
     {

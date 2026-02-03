@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 5599799438644413405}
   - component: {fileID: 2798125496366555468}
   - component: {fileID: 3022796574715610224}
+  - component: {fileID: 1629717953977926182}
   m_Layer: 0
   m_Name: NodeSprite
   m_TagString: Node
@@ -352,3 +353,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NodeBehaviour
   questType: 
+  questDescription: 
+  scriptRef: {fileID: 0}
+--- !u!114 &1629717953977926182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9196992418839692987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d457356b8b3ee840a16fc3f43671d72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AssignQuestData

@@ -1,18 +1,18 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using NUnit.Framework;
 using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    private string influence = "";
     public string questType = "";
     public string questDescription = "";
 
     private void Start()
     {
         GetInfluence();
-        SetQuestType();
+        TypeRandomizer();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -32,35 +32,31 @@ public class Node : MonoBehaviour
 
     private void GetInfluence()
     {
-        
+        questType = EventBus.Instance.GetComponent<GetValueFromDropdown>().GetDropdownValue().ToUpper();
+
     }
 
-    private void SetQuestType()
-    {
-        influence = EventBus.Instance.GetComponent<GetValueFromDropdown>().GetDropdownValue().ToUpper();
-
-        TypeRandomizer();
-    }
-
+    // detect what the quest influence is
+    // read the JSON and find matching influence section, this determines available quest types
+    // set the randomized quest type
     private void TypeRandomizer()
     {
-        List<string> availableQuestTypes = new();
 
         // add the relative quest types
 
-        if (influence == "Adventure".ToUpper())
+        if (questType == "Adventure".ToUpper())
         {
 
         }
-        else if (influence == "MMO")
+        else if (questType == "MMO")
         {
 
         }
-        else if (influence == "RPG")
+        else if (questType == "RPG")
         {
 
         }
-        else if (influence == "Strategy".ToUpper())
+        else if (questType == "Strategy".ToUpper())
         {
 
         }

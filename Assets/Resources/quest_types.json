@@ -1,0 +1,96 @@
+{
+    "quests": [
+        {
+            "name": "Adventure",
+            "types": [
+                {
+                    "name": "rescue"
+                },
+                {
+                    "name": "kill"
+                },
+                {
+                    "name": "steal"
+                },
+                {
+                    "name": "investigate"
+                },
+                {
+                    "name": "escape"
+                },
+                {
+                    "name": "stealth"
+                },
+                {
+                    "name": "explore"
+                },
+                {
+                    "name": "gather"
+                }
+            ]
+        },
+        {
+            "name": "MMO",
+            "types": [
+                {
+                    "name": "kill"
+                },
+                {
+                    "name": "gather"
+                },
+                {
+                    "name": "deliver"
+                },
+                {
+                    "name": "daily"
+                },
+                {
+                    "name": "raid"
+                },
+                {
+                    "name": "guild"
+                },
+                {
+                    "name": "event"
+                }
+            ]
+        },
+        {
+            "name": "RPG",
+            "types": [
+                {
+                    "name": "fetch"
+                },
+                {
+                    "name": "kill"
+                },
+                {
+                    "name": "escort"
+                },
+                {
+                    "name": "investigate"
+                }
+            ]
+        },
+        {
+            "name": "Strategy",
+            "types": [
+                {
+                    "name": "capture"
+                },
+                {
+                    "name": "resource"
+                },
+                {
+                    "name": "survive"
+                },
+                {
+                    "name": "progression"
+                },
+                {
+                    "name": "time"
+                }
+            ]
+        }
+    ]
+}
