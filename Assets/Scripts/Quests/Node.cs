@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
+    private string influence = "";
     public string questType = "";
     public string questDescription = "";
 
@@ -32,7 +33,7 @@ public class Node : MonoBehaviour
 
     private void GetInfluence()
     {
-        questType = EventBus.Instance.GetComponent<GetValueFromDropdown>().GetDropdownValue().ToUpper();
+        influence = EventBus.Instance.GetComponent<GetValueFromDropdown>().GetDropdownValue().ToUpper();
 
     }
 
@@ -41,24 +42,27 @@ public class Node : MonoBehaviour
     // set the randomized quest type
     private void TypeRandomizer()
     {
-
-        // add the relative quest types
-
-        if (questType == "Adventure".ToUpper())
+        List<string> typeList = new();
+        if (influence == "Adventure".ToUpper())
         {
-
+            typeList = new() {"Rescue", "Kill", "Retreive", "Investigate", "Explore", "Stealth", "Gather"};
         }
-        else if (questType == "MMO")
+        else if (influence == "MMO")
         {
-
+            typeList = new() {"Kill", "Gather", "Deliver", "Craft", "Trial", "Fishing", "Cooking", "Boss"};
         }
-        else if (questType == "RPG")
+        else if (influence == "RPG")
         {
-
+            typeList = new() {"Fetch", "Companion", "Escort", "Kill", "Investigate", "Stealth", "Interact", "Bequeath"};
         }
-        else if (questType == "Strategy".ToUpper())
-        {
 
+        if(typeList.Count != 0)
+        {
+            questType = typeList[Random.Range(0, typeList.Count)];
+        }
+        else
+        {
+            print("List was EMPTY");
         }
     }
 

@@ -1,9 +1,17 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.DualShock.LowLevel;
 
 public class MouseManager : MonoBehaviour
 {
     private InputAction mouseClick;
+
+    [Header("Canvas Properties")]
+    [SerializeField] private Canvas targetCanvas;
+    [SerializeField] private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI descriptionText;
+
 
     private void Start()
     {
@@ -12,7 +20,6 @@ public class MouseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if(mouseClick.WasPressedThisFrame())
         {
             Vector2 mousePos = Mouse.current.position.ReadValue();
@@ -22,7 +29,16 @@ public class MouseManager : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject.tag == "Node")
             {
-                print(hit.collider.gameObject.name);
+                targetCanvas.enabled = true;
+
+                titleText.text = hit.collider.gameObject.GetComponent<Node>().questType;
+
+                //descriptionText.text = hit.collider.gameObject.GetComponent<Node>().questDescription;
+            }
+
+            if (!hit.collider)
+            {
+                targetCanvas.enabled = false;
             }
         }
 
