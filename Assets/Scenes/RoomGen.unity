@@ -2306,7 +2306,6 @@ GameObject:
   - component: {fileID: 862693616}
   - component: {fileID: 862693615}
   - component: {fileID: 862693614}
-  - component: {fileID: 862693617}
   m_Layer: 5
   m_Name: GenerateButton
   m_TagString: Untagged
@@ -2378,7 +2377,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 862693617}
+      - m_Target: {fileID: 971552010}
         m_TargetAssemblyTypeName: GenerateQuest, Assembly-CSharp
         m_MethodName: Generate
         m_Mode: 1
@@ -2428,24 +2427,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862693612}
   m_CullTransparentMesh: 1
---- !u!114 &862693617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 862693612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a7145ab075ba9438bab85b9e6da471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GenerateQuest
-  targetCanvas: {fileID: 1649948174}
-  outputContainer: {fileID: 1079181316}
-  nodePrefab: {fileID: 9196992418839692987, guid: 9d30d2029b2487f41aea1a1d713e1336, type: 3}
-  nodeList: []
-  edgePrefab: {fileID: 3272986369461853809, guid: 5b3da78c6adee7041a6e67a22ceb3ff9, type: 3}
-  edgeList: []
 --- !u!1 &929539031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,6 +2579,7 @@ GameObject:
   - component: {fileID: 971552007}
   - component: {fileID: 971552008}
   - component: {fileID: 971552009}
+  - component: {fileID: 971552010}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2719,6 +2701,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d457356b8b3ee840a16fc3f43671d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AssignQuestData
+--- !u!114 &971552010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971552002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a7145ab075ba9438bab85b9e6da471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GenerateQuest
+  targetCanvas: {fileID: 1649948174}
+  outputContainer: {fileID: 1079181316}
+  nodePrefab: {fileID: 9196992418839692987, guid: 9d30d2029b2487f41aea1a1d713e1336, type: 3}
+  nodeList: []
+  edgePrefab: {fileID: 3272986369461853809, guid: 5b3da78c6adee7041a6e67a22ceb3ff9, type: 3}
+  edgeList: []
 --- !u!1 &971826139
 GameObject:
   m_ObjectHideFlags: 0
@@ -3048,7 +3048,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1079181320}
-  - component: {fileID: 1079181321}
   m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
@@ -3071,23 +3070,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1079181321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079181316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea27b916c47782648900302ac1c73f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RegnerateQuest
-  targetCanvas: {fileID: 1649948174}
-  outputContainer: {fileID: 1079181316}
-  nodePrefab: {fileID: 9196992418839692987, guid: 9d30d2029b2487f41aea1a1d713e1336, type: 3}
-  edgePrefab: {fileID: 3272986369461853809, guid: 5b3da78c6adee7041a6e67a22ceb3ff9, type: 3}
-  edgeList: []
 --- !u!1 &1246070957
 GameObject:
   m_ObjectHideFlags: 0

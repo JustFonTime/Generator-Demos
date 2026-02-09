@@ -29,13 +29,6 @@ public class EventBus : MonoBehaviour
         OnNodeCreated?.Invoke();
     }
 
-
-    public event Action OnRegenRequest;
-    public void RegenRequest()
-    {
-        OnRegenRequest?.Invoke();
-    }
-
     public event Action OnNodeOverlapped;
 
     public void NodeOverlap()

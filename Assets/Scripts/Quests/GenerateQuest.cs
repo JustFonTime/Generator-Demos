@@ -10,6 +10,8 @@ using UnityEditor;
 public class GenerateQuest : MonoBehaviour
 {
     private EventBus eventBusRef;
+    private InputAction regenerate;
+    private InputAction openMenu;
 
     [SerializeField] private Canvas targetCanvas;
 
@@ -26,8 +28,25 @@ public class GenerateQuest : MonoBehaviour
     private void Start()
     {
         eventBusRef = EventBus.Instance;
-        EventBus.Instance.OnRegenRequest += ClearAll;
+        regenerate = InputSystem.actions.FindAction("Generate");
+        openMenu = InputSystem.actions.FindAction("OpenMenu");
+
         EventBus.Instance.OnNodeOverlapped += HandleOverlap;
+    }
+
+    private void Update()
+    {
+        if (targetCanvas.enabled == false && regenerate.WasReleasedThisFrame())
+        {
+            ClearAll();
+            Generate();
+        }
+
+        if (openMenu.WasReleasedThisFrame())
+        {
+            ClearAll();
+            targetCanvas.enabled = true;
+        }
     }
 
     // Determine how many Nodes need to be generated
@@ -35,13 +54,13 @@ public class GenerateQuest : MonoBehaviour
     {
         ClearAll();
 
-        targetCanvas.enabled = false;
+        
         print($"Generating quest in the style of {eventBusRef.questInfluence.GetDropdownValue().ToUpper()} with a length of {eventBusRef.questLength.GetSliderValue()}.");
 
         var nodeCount = eventBusRef.questLength.GetSliderValue();
 
-        // Instansiate our Nodes (plus one to account for exclusive Range)
-        for (int i = 0; i < nodeCount + 1; i++)
+        // Instansiate our Nodes
+        for (int i = 0; i < nodeCount; i++)
         {
             Vector3 position = RandomNodePosition();
 
@@ -69,6 +88,8 @@ public class GenerateQuest : MonoBehaviour
         }
 
         CreateEdges();
+
+        targetCanvas.enabled = false;
     }
 
     private Vector3 RandomNodePosition()
