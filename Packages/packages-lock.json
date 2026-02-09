@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.shniqq.fast-noise-lite": {
-      "version": "file:C:/Users/justi/Downloads/FastNoiseLite-Unity-master/FastNoiseLite-Unity-master",
+      "version": "file:C:/Users/justi/Downloads/FastNoiseLite-Unity-master",
       "depth": 0,
       "source": "local",
       "dependencies": {}

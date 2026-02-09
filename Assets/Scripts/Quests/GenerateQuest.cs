@@ -33,38 +33,12 @@ public class GenerateQuest : MonoBehaviour
     // Determine how many Nodes need to be generated
     public void Generate()
     {
-        // Hide the PromptCanvas
+        ClearAll();
+
         targetCanvas.enabled = false;
         print($"Generating quest in the style of {eventBusRef.questInfluence.GetDropdownValue().ToUpper()} with a length of {eventBusRef.questLength.GetSliderValue()}.");
 
-        // Instantiate 
-        /*
-         * TINY = 1 to 3
-         * SHORT = 3 to 5
-         * MEDIUM = 6 to 9
-         * LONG = 10 to 12
-         * HUGE = 15 to 20
-        */
-        var nodeCount = 0;
-
-        switch (eventBusRef.questLength.GetSliderValue())
-        {
-            case "TINY":
-                nodeCount = Random.Range(1,3);
-                break;
-            case "SHORT":
-                nodeCount = Random.Range(3, 5);
-                break;
-            case "MEDIUM":
-                nodeCount = Random.Range(6, 9);
-                break;
-            case "LONG":
-                nodeCount = Random.Range(10, 12);
-                break;
-            case "HUGE":
-                nodeCount = Random.Range(15, 20);
-                break;
-        }
+        var nodeCount = eventBusRef.questLength.GetSliderValue();
 
         // Instansiate our Nodes (plus one to account for exclusive Range)
         for (int i = 0; i < nodeCount + 1; i++)
