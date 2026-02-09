@@ -1,19 +1,17 @@
-using NUnit.Framework;
-using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
+using UnityEngine;
 
-public class QuestList
+[CreateAssetMenu(menuName = "Quest/QuestGenre")]
+public class QuestGenre : ScriptableObject
 {
-    public List<Quest> quests;
-}
-public class Quest
-{
-    public string name;
-    public List<QuestType> types;
-}
+    public enum QuestGenres
+    {
+        Adventure,
+        MMO,
+        RPG
+    }
 
-public class QuestType
-{
-    public string name;
+    public QuestGenres Genre;
+
+    public List<QuestType> questTypes;
 }

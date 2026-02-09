@@ -25,6 +25,8 @@ public class GenerateQuest : MonoBehaviour
     [SerializeField] private LineRenderer edgePrefab;
     public List<GameObject> edgeList = new();
 
+    
+
     private void Start()
     {
         eventBusRef = EventBus.Instance;
@@ -52,6 +54,7 @@ public class GenerateQuest : MonoBehaviour
     // Determine how many Nodes need to be generated
     public void Generate()
     {
+        EventBus.Instance.RegenerateRequest();
         ClearAll();
 
         
@@ -83,6 +86,7 @@ public class GenerateQuest : MonoBehaviour
             }
 
             nodeList.Add(node);
+            EventBus.Instance.NodeCreated();
 
             node.transform.position = position;
         }

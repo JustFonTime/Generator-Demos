@@ -1,75 +1,96 @@
+using System.Collections.Generic;
+using NUnit.Framework.Interfaces;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class AssignQuestData : MonoBehaviour
 {
-    private string questType = "ADWAD";
-    private string questDescription = "RAAAAAH";
+    public QuestGenre questGenre;
+    [SerializeField] string selectedQuestGenre;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] List<QuestGenre> questGenres = new();
+
+    [SerializeField] List<QuestType> selectedQuestType;
+
+    private void Start()
     {
-        EventBus.Instance.OnNodeCreated += Test;
-        //EventBus.Instance.OnNodeCreated += GetInfluence;
-        //EventBus.Instance.OnNodeCreated += TypeRandomizer;
+        EventBus.Instance.OnNodeCreated += GenerateData;
+        EventBus.Instance.OnRegenerateRequest += ClearData;
     }
 
-    private string GetQuestType()
+    public void GenerateData()
     {
-        return questType;
-    }
+        List<GameObject> nodePoints = GetComponent<GenerateQuest>().nodeList;
+        DetermineGenre();
+        DetermineWeight();
 
-    private string GetQuestDescription()
-    {
-        return questDescription;
-    }
-
-    private void Test()
-    {
-        print("Node was birthed");
-    }
-
-    private void GetInfluence()
-    {
-        questType = EventBus.Instance.GetComponent<GetValueFromDropdown>().GetDropdownValue().ToUpper();
-
-    }
-
-    // detect what the quest influence is
-    // read the JSON and find matching influence section, this determines available quest types
-    // set the randomized quest type
-    private void TypeRandomizer()
-    {
-
-        TextAsset json = Resources.Load<TextAsset>("quest_types");
-        string jsonText = json.text;
-
-        print(jsonText);
-
-
-        // add the relative quest types
-
-        if (questType == "Adventure".ToUpper())
+        if (nodePoints.Count > 0)
         {
-            Quest quest = JsonUtility.FromJson<Quest>(json.text);
-
-            Debug.Log(quest.types);
-
-            foreach (QuestType qt in quest.types)
+            foreach (var node in nodePoints)
             {
-                Debug.Log(qt.name);
+                if (node != null)
+                {
+                    node.GetComponent<Node>().influence = selectedQuestGenre;
+                }
             }
         }
-        else if (questType == "MMO")
-        {
+    }
+   
+    public void DetermineGenre()
+    {
+        selectedQuestGenre = GetComponent<GetValueFromDropdown>().GetDropdownValue();
 
-        }
-        else if (questType == "RPG")
+        if (questGenres.Count > 0)
         {
+            foreach(var genre in questGenres)
+            {
+                if (genre != null)
+                {
+                    var compareString = genre.name.Substring(genre.name.IndexOf("_") + 1);
 
+                    if (selectedQuestGenre == compareString)
+                    {
+                        questGenre = genre;
+                        selectedQuestGenre = compareString;
+                        break;
+                    }
+                }
+            }
         }
-        else if (questType == "Strategy".ToUpper())
+    }
+
+
+    public void DetermineWeight()
+    {
+        float totalWeight = 0;
+        QuestType tempQuestType = null;
+
+        foreach (var type in questGenre.questTypes)
         {
-
+            totalWeight += 1f / type.weight;
         }
+
+        float randomWeight = Random.Range(0, totalWeight);
+        float cumulativeWeight = 0f;
+
+        foreach (var type in questGenre.questTypes)
+        {
+            cumulativeWeight += 1f / type.weight;
+
+            if (randomWeight <= cumulativeWeight)
+            {
+                tempQuestType = type;
+                break;
+            }
+        }
+
+        selectedQuestType.Add(tempQuestType);
+
+    }
+
+
+    public void ClearData()
+    {
+        selectedQuestType.Clear();
     }
 }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf0e0a4a3756d4c8663a5cec7f03b1, type: 3}
+  m_Name: Quest_RPG
+  m_EditorClassIdentifier: Assembly-CSharp::Quest
+  Genre: 2
+  questTypes:
+  - {fileID: 11400000, guid: f3bbca6a03bba0a4ea7bd478624c61b0, type: 2}
+  - {fileID: 11400000, guid: f4f4f01d4f0326e4986ef1805c68ef07, type: 2}
+  - {fileID: 11400000, guid: 45cf4e43a22bd2342b62f009a7e3cff9, type: 2}
+  - {fileID: 11400000, guid: 6d3ca14441d21be4cae4b1f0f91e8883, type: 2}
+  - {fileID: 11400000, guid: 7c8a131c8981dde439b43dda6667ae6e, type: 2}
+  - {fileID: 11400000, guid: 02775b69e821f914bae858d0a57e1029, type: 2}
+  - {fileID: 11400000, guid: 68e92722bd3d3264db5f05071363c22b, type: 2}
+  - {fileID: 11400000, guid: f7dac7bf1fd35b14f924889a11b71f08, type: 2}
