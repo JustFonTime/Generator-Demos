@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Cooking
   weight: 0.32
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Cook {number} servings of {food}.
+  - Prepare a meal using {ingredient}.
+  - Create a dish suitable for {npc}.
+  - Experiment with ingredients to cook {food}.
+  - Provide freshly cooked food to {location}.

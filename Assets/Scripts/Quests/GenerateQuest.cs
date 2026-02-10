@@ -25,7 +25,8 @@ public class GenerateQuest : MonoBehaviour
     [SerializeField] private LineRenderer edgePrefab;
     public List<GameObject> edgeList = new();
 
-    
+
+    private bool areAllNodesCreated = false;
 
     private void Start()
     {
@@ -33,7 +34,7 @@ public class GenerateQuest : MonoBehaviour
         regenerate = InputSystem.actions.FindAction("Generate");
         openMenu = InputSystem.actions.FindAction("OpenMenu");
 
-        EventBus.Instance.OnNodeOverlapped += HandleOverlap;
+        eventBusRef.OnNodeOverlapped += HandleOverlap;
     }
 
     private void Update()
@@ -48,6 +49,12 @@ public class GenerateQuest : MonoBehaviour
         {
             ClearAll();
             targetCanvas.enabled = true;
+        }
+
+        if(nodeList.Count == eventBusRef.questLength.GetSliderValue() && !areAllNodesCreated)
+        {
+            areAllNodesCreated = true;
+            eventBusRef.AllNodesCreated();
         }
     }
 
@@ -164,6 +171,8 @@ public class GenerateQuest : MonoBehaviour
     {
         ClearOldNodes();
         ClearEdges();
+
+        areAllNodesCreated = false;
     }
 
     private void HandleOverlap()

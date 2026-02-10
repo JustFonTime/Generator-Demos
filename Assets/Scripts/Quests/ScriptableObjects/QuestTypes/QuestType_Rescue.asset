@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e14c77429877900419debd85cbdef22b, type: 3}
-  m_Name: QuestType_Retrieve
+  m_Name: QuestType_Rescue
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
-  questTypeName: Retrieve
-  weight: 0.24
-  possibleDescriptions: []
+  questTypeName: Rescue
+  weight: 0.26
+  possibleDescriptions:
+  - Rescue {npc} from {location}.
+  - Free {npc} held captive by {enemyType}.
+  - Save {npc} before time runs out.
+  - Locate and rescue survivors in {location}.
+  - Bring {npc} to safety.

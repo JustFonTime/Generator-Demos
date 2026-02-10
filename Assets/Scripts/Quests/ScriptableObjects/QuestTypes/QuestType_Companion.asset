@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Companion
   weight: 0.25
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Recruit {npc} to join you on your journey.
+  - Assist {npc} to earn their trust and companionship.
+  - Complete a task that convinces {npc} to travel with you.
+  - Help {npc} resolve a personal matter.
+  - Strengthen your bond with {npc} through shared experience.

@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Stealth
   weight: 0.22
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Infiltrate {location} without being detected.
+  - Steal {item} while remaining unseen.
+  - Gather information covertly from {location}.
+  - Avoid detection while completing your objective.
+  - Sneak into {location} and escape unnoticed.

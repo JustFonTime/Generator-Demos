@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Fetch
   weight: 0.3
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Retrieve {item} from {location}.
+  - Acquire {item} and return it to {npc}.
+  - Search for {item} hidden in {location}.
+  - Obtain a rare item needed by {npc}.
+  - Find and bring back {item}.

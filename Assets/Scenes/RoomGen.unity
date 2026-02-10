@@ -2500,6 +2500,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4cfd90513e7e00143aab8868ef9bc09c, type: 2}
   - {fileID: 11400000, guid: e52e369b5fd33a749b42edbfe6710c9d, type: 2}
   - {fileID: 11400000, guid: 4318620aeae8fed4397708ae29cddf7c, type: 2}
+  selectedQuestTypes: []
 --- !u!1 &971826139
 GameObject:
   m_ObjectHideFlags: 0
@@ -4272,8 +4273,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281348242
+  m_fontColor: {r: 0.5723271, g: 0.19017573, b: 0.19017573, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5010,8 +5011,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

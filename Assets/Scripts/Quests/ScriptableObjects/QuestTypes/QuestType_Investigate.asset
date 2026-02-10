@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Investigate
   weight: 0.24
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Investigate the strange events occurring in {location}.
+  - Gather clues related to {incident}.
+  - Examine the scene at {location}.
+  - Uncover the truth behind {mystery}.
+  - Report your findings from {location} to {npc}.

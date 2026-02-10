@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Explore
   weight: 0.42
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Explore the uncharted area of {location}.
+  - Discover points of interest within {location}.
+  - Venture into {location} and report your findings.
+  - Map the surrounding area of {location}.
+  - Investigate what lies beyond {location}.

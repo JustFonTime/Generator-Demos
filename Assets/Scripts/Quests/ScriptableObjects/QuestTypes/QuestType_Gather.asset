@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Gather
   weight: 0.32
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Gather {number} units of {resource}.
+  - Collect materials from {location}.
+  - Harvest {resource} needed by {npc}.
+  - Acquire resources scattered throughout {location}.
+  - Stockpile {resource} for future use.

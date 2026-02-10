@@ -29,6 +29,13 @@ public class EventBus : MonoBehaviour
         OnNodeCreated?.Invoke();
     }
 
+    public event Action OnAllNodesCreated;
+
+    public void AllNodesCreated()
+    {
+        OnAllNodesCreated?.Invoke();
+    }
+
     public event Action OnRegenerateRequest;
     public void RegenerateRequest()
     {

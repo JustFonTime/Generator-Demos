@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Interact
   weight: 0.42
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Speak with {npc} about {topic}.
+  - Interact with key figures in {location}.
+  - Gain information from {npc}.
+  - Trigger an event by interacting with {object}.
+  - Engage with {npc} to progress further.

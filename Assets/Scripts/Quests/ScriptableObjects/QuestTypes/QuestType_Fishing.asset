@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Fishing
   weight: 0.22
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Catch {number} {fishType}.
+  - Fish at {location} until you obtain {fishType}.
+  - Provide fresh fish to {npc}.
+  - 'Test your fishing skills at {location} and catch {number} {fishType}. '
+  - Gather fish needed for a local request.

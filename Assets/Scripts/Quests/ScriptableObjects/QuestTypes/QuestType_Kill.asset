@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Kill
   weight: 0.4
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Eliminate {number} {enemyType}.
+  - Defeat hostile forces in {location}.
+  - Hunt down {enemyType} threatening the area.
+  - Clear {location} of enemies.
+  - Neutralize the target known as {enemyName}.

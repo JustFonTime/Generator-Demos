@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Escort
   weight: 0.19
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Escort {npc} safely to {location}.
+  - Protect {npc} while traveling through {location}.
+  - Guide {npc} past dangers to {destination}.
+  - Ensure the safe passage of {npc}.
+  - Travel alongside {npc} and keep them safe.

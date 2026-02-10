@@ -33,7 +33,7 @@ public class MouseManager : MonoBehaviour
 
                 titleText.text = hit.collider.gameObject.GetComponent<Node>().questType;
 
-                //descriptionText.text = hit.collider.gameObject.GetComponent<Node>().questDescription;
+                descriptionText.text = hit.collider.gameObject.GetComponent<Node>().questDescription;
             }
 
             if (!hit.collider)

@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Deliver
   weight: 0.15
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Deliver {item} to {recipient} at {location}.
+  - Transport {item} safely across {location}.
+  - Ensure {item} reaches {npc} without damage.
+  - Carry a package to {destination}.
+  - Complete the delivery of {item}.

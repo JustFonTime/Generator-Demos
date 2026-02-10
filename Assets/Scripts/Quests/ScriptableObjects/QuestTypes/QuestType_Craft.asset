@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Craft
   weight: 0.25
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Craft {number} pieces of {item}.
+  - Create a {item} using gathered materials.
+  - Forge equipment suitable for {npc}.
+  - Improve your skills by crafting {item}.
+  - Produce a custom item for use in {location}.

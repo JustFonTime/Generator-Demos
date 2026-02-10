@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Trial
   weight: 0.27
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Complete the trial of {challengeType}.
+  - Prove your worth by surviving the trial.
+  - Overcome a series of challenges in {location}.
+  - Face the trial set by {npc}.
+  - Demonstrate mastery through the trial.

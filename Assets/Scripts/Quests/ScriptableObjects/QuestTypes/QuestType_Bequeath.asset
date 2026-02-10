@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Bequeath
   weight: 0.3
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Deliver the inheritance of {item} to {recipient}.
+  - Ensure {item} is passed on according to {recipient}'s final wishes.
+  - Carry {item} to {location} for its rightful heir.
+  - Safeguard and transfer {item} after the passing of {recipient}.
+  - Fulfill the request left behind for {recipient}.

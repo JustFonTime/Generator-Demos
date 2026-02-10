@@ -14,4 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestType
   questTypeName: Boss
   weight: 0.1
-  possibleDescriptions: []
+  possibleDescriptions:
+  - Defeat the powerful {bossName} threatening {location}.
+  - Challenge and overcome the ruler of {location}, the {bossName}.
+  - Confront {bossName} at the heart of {dungeon}.
+  - Put an end to the reign of {bossName}.
+  - Prove your strength by defeating {bossName}.
