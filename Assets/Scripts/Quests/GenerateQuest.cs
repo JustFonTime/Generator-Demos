@@ -64,9 +64,6 @@ public class GenerateQuest : MonoBehaviour
         EventBus.Instance.RegenerateRequest();
         ClearAll();
 
-        
-        print($"Generating quest in the style of {eventBusRef.questInfluence.GetDropdownValue().ToUpper()} with a length of {eventBusRef.questLength.GetSliderValue()}.");
-
         var nodeCount = eventBusRef.questLength.GetSliderValue();
 
         // Instansiate our Nodes
@@ -144,11 +141,9 @@ public class GenerateQuest : MonoBehaviour
             edge.SetPosition(0, nodeList[i].transform.position);
             edge.SetPosition(1, nodeList[i+1].transform.position);
 
-            //edge.startColor = Color.pink;
-            //edge.endColor = Color.green;
+            edge.startColor = new Color((1f / i), (0.05f * i), 0.05f);
+            edge.endColor = new Color((1f / i), (0.05f * i), 0.05f);
         }
-
-        //print("Finished Generating Nodes");
     }
 
     private void ClearEdges()
