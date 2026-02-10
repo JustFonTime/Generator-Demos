@@ -9,6 +9,7 @@ public class Node : MonoBehaviour
     public string influence = "";
     public string questType = "";
     public string questDescription = "";
+    public string questReward = "";
 
     private void OnCollisionStay2D(Collision2D collision)
     {

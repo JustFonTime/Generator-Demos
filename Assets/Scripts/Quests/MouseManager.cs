@@ -11,6 +11,7 @@ public class MouseManager : MonoBehaviour
     [SerializeField] private Canvas targetCanvas;
     [SerializeField] private TextMeshProUGUI titleText;
     [SerializeField] private TextMeshProUGUI descriptionText;
+    [SerializeField] private TextMeshProUGUI rewardText;
 
 
     private void Start()
@@ -34,6 +35,8 @@ public class MouseManager : MonoBehaviour
                 titleText.text = hit.collider.gameObject.GetComponent<Node>().questType;
 
                 descriptionText.text = hit.collider.gameObject.GetComponent<Node>().questDescription;
+
+                rewardText.text = hit.collider.gameObject.GetComponent <Node>().questReward;
             }
 
             if (!hit.collider)

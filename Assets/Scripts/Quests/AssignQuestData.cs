@@ -42,6 +42,8 @@ public class AssignQuestData : MonoBehaviour
                 node.questType = currType.name.Substring(currType.name.LastIndexOf("_") + 1);
 
                 node.questDescription = currType.possibleDescriptions[Random.Range(0, currType.possibleDescriptions.Count)];
+
+                node.questReward = $"{100 * (i + EventBus.Instance.questReward.GetSliderValueMult())}x Coins";
             }
         }
     }

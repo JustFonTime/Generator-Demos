@@ -8,6 +8,7 @@ public class EventBus : MonoBehaviour
 
     public GetValueFromDropdown questInfluence;
     public GetValueFromSlider questLength;
+    public GetValueFromSliderMultiplier questReward;
 
     private void Awake()
     {
