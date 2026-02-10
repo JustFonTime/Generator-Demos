@@ -49,8 +49,6 @@ public class AssignQuestData : MonoBehaviour
                 {
                     if(Random.Range(0, 100) % 2 == 0)
                     {
-                        print($"Generating an Optional for {node.name}");
-
                         SelectQuestType(1);
                         QuestType currOptionalType = selectedQuestTypes[0];
                         selectedQuestTypes.RemoveAt(0);
