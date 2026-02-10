@@ -11,6 +11,9 @@ public class Node : MonoBehaviour
     public string questDescription = "";
     public string questReward = "";
 
+    public string optionalQuestType = "";
+    public string optionalQuestDescription = "";
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision != null)

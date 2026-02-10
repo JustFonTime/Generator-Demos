@@ -13,6 +13,8 @@ public class MouseManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI rewardText;
 
+    [SerializeField] private TextMeshProUGUI optionalTitleText;
+    [SerializeField] private TextMeshProUGUI optionalDescriptionText;
 
     private void Start()
     {
@@ -32,11 +34,30 @@ public class MouseManager : MonoBehaviour
             {
                 targetCanvas.enabled = true;
 
-                titleText.text = hit.collider.gameObject.GetComponent<Node>().questType;
+                var nodeReference = hit.collider.gameObject.GetComponent<Node>();
 
-                descriptionText.text = hit.collider.gameObject.GetComponent<Node>().questDescription;
+                titleText.text = nodeReference.questType;
 
-                rewardText.text = hit.collider.gameObject.GetComponent <Node>().questReward;
+                descriptionText.text = nodeReference.questDescription;
+
+                rewardText.text = nodeReference.questReward;
+
+                if(EventBus.Instance.hasQuestBranching.GetToggleValue())
+                {
+                    if(nodeReference.optionalQuestDescription != string.Empty && nodeReference.optionalQuestType != string.Empty)
+                    {
+                        optionalTitleText.enabled = true;
+                        optionalDescriptionText.enabled = true;
+
+                        optionalTitleText.text = nodeReference.optionalQuestType;
+                        optionalDescriptionText.text = nodeReference.optionalQuestDescription;
+                    }
+                    else
+                    {
+                        optionalTitleText.enabled = false;
+                        optionalDescriptionText.enabled = false;
+                    }
+                }
             }
 
             if (!hit.collider)

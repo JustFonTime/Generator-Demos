@@ -43,7 +43,23 @@ public class AssignQuestData : MonoBehaviour
 
                 node.questDescription = currType.possibleDescriptions[Random.Range(0, currType.possibleDescriptions.Count)];
 
-                node.questReward = $"{100 * (i + EventBus.Instance.questReward.GetSliderValueMult())}x Coins";
+                node.questReward = $"{ 100 + (100 * (i + EventBus.Instance.questReward.GetSliderValueMult())) }x Coins";
+
+                if(EventBus.Instance.hasQuestBranching.GetToggleValue())
+                {
+                    if(Random.Range(0, 100) % 2 == 0)
+                    {
+                        print($"Generating an Optional for {node.name}");
+
+                        SelectQuestType(1);
+                        QuestType currOptionalType = selectedQuestTypes[0];
+                        selectedQuestTypes.RemoveAt(0);
+
+                        node.optionalQuestType = "Optional Quest: " + currOptionalType.name.Substring(currOptionalType.name.LastIndexOf("_") + 1);
+
+                        node.optionalQuestDescription = currOptionalType.possibleDescriptions[Random.Range(0, currOptionalType.possibleDescriptions.Count)];
+                    }
+                }
             }
         }
     }
