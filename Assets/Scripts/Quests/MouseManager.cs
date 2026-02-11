@@ -1,11 +1,11 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.DualShock.LowLevel;
 
 public class MouseManager : MonoBehaviour
 {
     private InputAction mouseClick;
+    private InputAction openMenu;
 
     [Header("Canvas Properties")]
     [SerializeField] private Canvas targetCanvas;
@@ -19,6 +19,7 @@ public class MouseManager : MonoBehaviour
     private void Start()
     {
         mouseClick = InputSystem.actions.FindAction("MousePressed", true);
+        openMenu = InputSystem.actions.FindAction("OpenMenu");
     }
     // Update is called once per frame
     void Update()
@@ -66,8 +67,9 @@ public class MouseManager : MonoBehaviour
             }
         }
 
-        if(mouseClick.WasReleasedThisFrame())
+        if(openMenu.WasReleasedThisFrame())
         {
+            targetCanvas.enabled = false;
         }
     }
 }
