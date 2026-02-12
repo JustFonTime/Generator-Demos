@@ -55,6 +55,11 @@ public class AssignQuestData : MonoBehaviour
                         node.optionalQuestDescription = currOptionalType.possibleDescriptions[Random.Range(0, currOptionalType.possibleDescriptions.Count)];
                     }
                 }
+                else
+                {
+                    node.optionalQuestType = string.Empty;
+                    node.optionalQuestDescription = string.Empty;
+                }
             }
         }
     }

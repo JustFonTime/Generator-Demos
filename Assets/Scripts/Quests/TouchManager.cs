@@ -6,6 +6,7 @@ public class TouchManager : MonoBehaviour
 {
     private InputAction touch;
     private InputAction mouseClick;
+    private InputAction regenerate;
     private InputAction openMenu;
 
     [Header("Canvas Properties")]
@@ -21,6 +22,7 @@ public class TouchManager : MonoBehaviour
     {
         touch = InputSystem.actions.FindAction("Touch", true);
         mouseClick = InputSystem.actions.FindAction("MousePressed", true);
+        regenerate = InputSystem.actions.FindAction("Generate");
         openMenu = InputSystem.actions.FindAction("OpenMenu");
     }
     // Update is called once per frame
@@ -41,6 +43,11 @@ public class TouchManager : MonoBehaviour
         if (openMenu.WasReleasedThisFrame())
         {
 
+            targetCanvas.enabled = false;
+        }
+
+        if(regenerate.WasReleasedThisFrame())
+        {
             targetCanvas.enabled = false;
         }
     }
@@ -79,6 +86,14 @@ public class TouchManager : MonoBehaviour
                     optionalTitleText.enabled = false;
                     optionalDescriptionText.enabled = false;
                 }
+            }
+            else
+            {
+                optionalTitleText.text = string.Empty;
+                optionalTitleText.enabled = false;
+
+                optionalDescriptionText.text = string.Empty;
+                optionalDescriptionText.enabled = false;
             }
         }
 
