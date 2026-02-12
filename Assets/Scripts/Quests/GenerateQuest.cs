@@ -43,8 +43,7 @@ public class GenerateQuest : MonoBehaviour
 
         if (openMenu.WasReleasedThisFrame())
         {
-            ClearAll();
-            targetCanvas.enabled = true;
+            OpenPrompt();
         }
 
         if(nodeList.Count == eventBusRef.questLength.GetSliderValue() && !areAllNodesCreated)
@@ -170,5 +169,11 @@ public class GenerateQuest : MonoBehaviour
     {
         ClearEdges();
         CreateEdges();
+    }
+
+    public void OpenPrompt()
+    {
+        ClearAll();
+        targetCanvas.enabled = true;
     }
 }
