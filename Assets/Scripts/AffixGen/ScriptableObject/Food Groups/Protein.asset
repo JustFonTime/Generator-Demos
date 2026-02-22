@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e4b5a2796e71c458cef53b8b8950b4, type: 3}
+  m_Name: Protein
+  m_EditorClassIdentifier: Assembly-CSharp::Food
+  FoodGroup: 4
+  FoodNames:
+  - {fileID: 11400000, guid: a713b5f39bacd494495689d338a50bb9, type: 2}
+  - {fileID: 11400000, guid: 3fd9953a5fdb02a4e845ec1882633773, type: 2}
+  - {fileID: 11400000, guid: edbf3e9d0a851f5489e57739583008a4, type: 2}
+  - {fileID: 11400000, guid: ce8132bc2139c8a4a8198e3e38e5e313, type: 2}
+  - {fileID: 11400000, guid: e9d7c0801e4f18b439925ec382fd0e77, type: 2}
+  - {fileID: 11400000, guid: 56bcc9b8b831c1348ac61f8cc831802f, type: 2}
+  - {fileID: 11400000, guid: e41124c552d5013439dc240dbbc138fd, type: 2}
+  - {fileID: 11400000, guid: 1bb34b6d9267e494485ff3986038faeb, type: 2}
+  - {fileID: 11400000, guid: 5b967a54722d7de49bf7a369493c6c20, type: 2}
+  - {fileID: 11400000, guid: 2abd38cb4de22344eb9c2917fec66305, type: 2}
+  - {fileID: 11400000, guid: 6605663dec9801e419f5d7334d916f13, type: 2}
+  - {fileID: 11400000, guid: ccdb917cedb05334db5b91e4c4e8631c, type: 2}
+  - {fileID: 11400000, guid: 5a13975f5f488d54693b9b85d078d725, type: 2}
+  - {fileID: 11400000, guid: a5ce7876cb8a82f45b4a9756f7f9d498, type: 2}
+  - {fileID: 11400000, guid: 71277ae93fa46164083da1bbb97096d3, type: 2}
+  - {fileID: 11400000, guid: ae62f981c488e424093ff595ee909584, type: 2}

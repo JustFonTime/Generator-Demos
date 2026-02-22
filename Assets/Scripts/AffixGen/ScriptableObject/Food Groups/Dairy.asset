@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e4b5a2796e71c458cef53b8b8950b4, type: 3}
+  m_Name: Dairy
+  m_EditorClassIdentifier: Assembly-CSharp::Food
+  FoodGroup: 5
+  FoodNames:
+  - {fileID: 11400000, guid: 60c0a0c21c40fac4189280f0dd1dde0f, type: 2}
+  - {fileID: 11400000, guid: b50efe599337cde4e9313365eb05e178, type: 2}
+  - {fileID: 11400000, guid: 24834a292ca0ee844a6c7d3efaa60a00, type: 2}
+  - {fileID: 11400000, guid: 6bf8b4fdb9f7bf94b96f02bb4adffaab, type: 2}
